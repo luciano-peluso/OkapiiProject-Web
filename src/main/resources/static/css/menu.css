@@ -1,0 +1,31 @@
+body {
+    background-color: #f0c278;
+    font-family: Arial, sans-serif;
+}
+
+#box-menu {
+    margin: 0 auto;
+    margin-top: 100px;
+    border: 1px solid;
+    padding: 20px;
+    background-color: #f5d6a4;
+    width: 450px;
+}
+
+input {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    height: 30px;
+    width: 300px;
+}
+
+#cerrar-sesion {
+    width: 150px;
+    height: 30px;
+    margin-bottom: 0px;
+}
+
+h2 {
+    text-align: center;
+}

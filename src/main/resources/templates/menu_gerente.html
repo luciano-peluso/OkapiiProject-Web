@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Okapii | Gerente</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/css/menu.css" />
+        <link rel="shortcut icon" href="/img/favicon.png" />
+    </head>
+    <body>
+        <!--// nombre estado descripcion presupuesto fecha_inicio fecha_final cliente-->
+        <div id="box-menu">
+            <h2>Bienvenido gerente.</h2>
+            <form method="get" action="/nuevoProyecto">
+                <input type="submit" value="Agregar proyecto" />
+            </form>
+
+            <form method="get" action="/verProyectos">
+                <input type="submit" value="Ver y editar proyectos" />
+            </form>
+
+            <form action="/verCambiarPassword" method="get">
+                <input type="submit" value="Cambiar contraseña" />
+            </form>
+
+            <form method="post" action="/logout">
+                <input id="cerrar-sesion" type="submit" value="Cerrar sesion" />
+            </form>
+        </div>
+    </body>
+</html>

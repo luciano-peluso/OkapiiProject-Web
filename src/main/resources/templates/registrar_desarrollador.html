@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Okapii | Registrar desarrollador</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/css/admin.css" />
+        <link rel="shortcut icon" href="/img/favicon.png" />
+    </head>
+    <body>
+        <div id="box-menu">
+            <h2>Registro de desarrollador.</h2>
+            <form method="post" action="/registrarDesarrollador">
+                <label for="user">Ingrese el nombre del desarrollador:</label>
+                <input
+                    type="text"
+                    id="nom_des"
+                    placeholder="Nombre"
+                    name="nombre"
+                    required
+                    />
+                <label for="pass">Ingrese las habilidades del desarrollador:</label>
+                <input
+                    type="text"
+                    id="habi_des"
+                    placeholder="Habilidades"
+                    name="habilidades"
+                    required
+                    />
+                <input type="hidden" id="disp" name="disp" value="0" />
+                <input type="submit" value="Registrar desarrollador" />
+            </form>
+            <th:block th:if="${desarrolladorRegistrado}">
+                <script>
+                    window.onload = function () {
+                        alert("Desarrollador registrado con éxito");
+                    };
+                </script>
+            </th:block>
+        </div>
+        <a id="volver" href="/">Volver</a>
+    </body>
+</html>

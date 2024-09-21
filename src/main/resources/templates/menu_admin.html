@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Okapii | Administrador</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/css/menu.css" />
+        <link rel="shortcut icon" href="/img/favicon.png" />
+    </head>
+    <body>
+        <div id="box-menu">
+            <h2>Bienvenido administrador.</h2>
+            <form action="/regUserPage" method="get">
+                <input type="submit" value="Registrar usuario." />
+            </form>
+            <form action="/regDevPage" method="get">
+                <input type="submit" value="Registrar desarrollador." />
+            </form>
+            <form action="/devsDispPage" method="get">
+                <input type="submit" value="Ver desarrolladores disponibles." />
+            </form>
+            <form action="/verAsignarDevs" method="get">
+                <input type="submit" value="Asignar desarrolladores." />
+            </form>
+            <form action="/allUsersPage" method="get">
+                <input type="submit" value="Ver todos los usuarios." />
+            </form>
+            <form action="/verCambiarPassword" method="get">
+                <input type="submit" value="Cambiar contraseña" />
+            </form>
+            <div id="cerrar_sesion">
+                <form method="post" action="/logout">
+                    <input type="submit" value="Cerrar sesion" />
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

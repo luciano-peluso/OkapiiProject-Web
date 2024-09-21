@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Okapii | Asignar desarrolladores</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/css/tablas.css" />
+        <link rel="shortcut icon" href="/img/favicon.png" />
+    </head>
+    <body>
+        <h2>Todos los proyectos:</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Estado</th>
+                    <th>Fecha Inicio</th>
+                    <th>Fecha Final</th>
+                    <th>Cliente</th>
+                    <th>Desarrolladores</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="proyecto, iterStat : ${proyectos}">
+                    <td th:text="${proyecto.id}"></td>
+                    <td th:text="${proyecto.nombre}"></td>
+                    <td th:text="${proyecto.estado}"></td>
+                    <td
+                        th:text="${#dates.format(proyecto.fecha_inicio, 'dd/MM/yyyy')}"
+                        ></td>
+                    <td
+                        th:text="${#dates.format(proyecto.fecha_final, 'dd/MM/yyyy')}"
+                        ></td>
+                    <td th:text="${nombres[iterStat.index]}"></td>
+                    <td>
+                        <button onclick="toggleDevelopers(this)">
+                            Mostrar Desarrolladores
+                        </button>
+                        <div style="display: none">
+                            <form method="post" action="/asignarDesarrolladores">
+                                <input
+                                    type="hidden"
+                                    name="proyectoId"
+                                    th:value="${proyecto.id}"
+                                    />
+                                <ul th:each="desarrollador : ${devs}">
+                                    <li>
+                                        <input
+                                            type="checkbox"
+                                            name="desarrolladoresId"
+                                            th:value="${desarrollador.id}"
+                                            />
+                                        <label th:text="${desarrollador.nombre}"></label>
+                                    </li>
+                                </ul>
+                                <input type="submit" value="Asignar Desarrolladores" />
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a id="volver" href="/">Volver</a>
+
+        <script>
+            function toggleDevelopers(button) {
+                var div = button.nextElementSibling;
+                if (div.style.display === "none") {
+                    div.style.display = "block";
+                } else {
+                    div.style.display = "none";
+                }
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Okapii | Desarrolladores disponibles</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/css/tablas.css" />
+        <link rel="shortcut icon" href="/img/favicon.png" />
+    </head>
+    <body>
+        <h2>Desarrolladores Disponibles:</h2>
+
+    <th:block th:if="${desarrolladoresDisponibles.empty}">
+        <p>No hay desarrolladores disponibles.</p>
+    </th:block>
+
+    <th:block th:unless="${desarrolladoresDisponibles.empty}">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Habilidades</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="desarrollador : ${desarrolladoresDisponibles}">
+                    <td th:text="${desarrollador.nombre}"></td>
+                    <td th:text="${desarrollador.habilidades}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </th:block>
+
+    <a id="volver" href="/">Volver</a>
+</body>
+</html>

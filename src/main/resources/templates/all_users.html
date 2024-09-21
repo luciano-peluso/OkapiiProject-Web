@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>Okapii | Usuarios</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/css/tablas.css" />
+        <link rel="shortcut icon" href="/img/favicon.png" />
+    </head>
+    <body>
+        <h2>Usuarios:</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre de usuario</th>
+                    <th>Rol</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="usuario : ${usuarios}">
+                    <td th:text="${usuario.id}"></td>
+                    <td th:text="${usuario.username}"></td>
+                    <td th:text="${usuario.rol}"></td>
+                </tr>
+            </tbody>
+        </table>
+        <a id="volver" href="/">Volver</a>
+    </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Okapii | Registrar usuario</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/css/admin.css" />
+        <link rel="shortcut icon" href="/img/favicon.png" />
+    </head>
+    <body>
+        <div id="box-menu">
+            <h2>Registro de usuario.</h2>
+            <form method="post" action="/registrarUsuario">
+                <label for="user">Ingrese el nombre de usuario:</label>
+                <input
+                    type="text"
+                    id="user"
+                    placeholder="Nombre de usuario"
+                    name="username"
+                    required
+                    />
+
+                <label for="pass">Ingrese la contraseña:</label>
+                <input
+                    type="password"
+                    id="pass"
+                    placeholder="Contraseña"
+                    name="password"
+                    required
+                    />
+
+                <label for="rol">Ingrese el rol del usuario:</label>
+                <select name="rol" id="rol">
+                    <option value="Admin">Administrador</option>
+                    <option value="Gerente">Gerente</option>
+                    <option value="Cliente">Cliente</option>
+                </select>
+                <input type="submit" value="Registrar usuario" />
+            </form>
+            <th:block th:if="${usuarioRegistrado}">
+                <script>
+                    window.onload = function () {
+                        alert("Usuario registrado con éxito");
+                    };
+                </script>
+            </th:block>
+        </div>
+        <a id="volver" href="/">Volver</a>
+    </body>
+</html>

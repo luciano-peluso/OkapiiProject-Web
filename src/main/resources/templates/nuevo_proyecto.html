@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Okapii | Nuevo proyecto</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/css/admin.css" />
+        <link rel="shortcut icon" href="/img/favicon.png" />
+    </head>
+    <body>
+        <div id="box-menu">
+            <h2>Nuevo proyecto.</h2>
+            <form action="/guardarProyecto" method="post">
+                <label for="nombre">Nombre:</label>
+                <input
+                    id="nombre"
+                    type="text"
+                    placeholder="Nombre"
+                    name="nombre"
+                    required
+                    />
+
+                <input type="hidden" id="estado" name="estado" value="No iniciado" />
+
+                <label for="descripcion">Descripcion:</label>
+                <input
+                    id="descripcion"
+                    type="text"
+                    placeholder="Descripcion"
+                    name="descripcion"
+                    required
+                    />
+
+                <label for="presupuesto">Presupuesto:</label>
+                <input
+                    id="presupuesto"
+                    type="number"
+                    placeholder="Presupuesto"
+                    name="presupuesto"
+                    min="0"
+                    required
+                    />
+
+                <label for="id_cliente">Cliente:</label>
+                <select id="id_cliente" name="cliente" required>
+                    <option
+                        th:each="cliente : ${clientes}"
+                        th:value="${cliente.id}"
+                        th:text="${cliente.username}"
+                        ></option>
+                </select>
+
+                <input type="submit" value="Crear proyecto" />
+            </form>
+        </div>
+
+        <a id="volver" href="/">Volver</a>
+
+    <th:block th:if="${proyectoCreado}">
+        <script>
+            window.onload = function () {
+                alert("Proyecto creado con éxito");
+            };
+        </script>
+    </th:block>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Okapii | Editar proyecto</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/css/admin.css" />
+        <link rel="shortcut icon" href="/img/favicon.png" />
+    </head>
+    <body>
+        <div id="box-menu">
+            <h2>Editar proyecto.</h2>
+            <form action="/confirmarCambios" method="post">
+                <input type="hidden" id="id" name="id" th:value="${proyecto.id}" />
+
+                <label for="nombre">Nombre:</label>
+                <input
+                    id="nombre"
+                    type="text"
+                    placeholder="Nombre"
+                    name="nombre"
+                    th:value="${proyecto.nombre}"
+                    required
+                    />
+
+                <input type="hidden" id="estado" name="estado" value="No iniciado" />
+
+                <label for="descripcion">Descripcion:</label>
+                <input
+                    id="descripcion"
+                    type="text"
+                    placeholder="Descripcion"
+                    name="descripcion"
+                    th:value="${proyecto.descripcion}"
+                    required
+                    />
+
+                <label for="presupuesto">Presupuesto:</label>
+                <input
+                    id="presupuesto"
+                    type="number"
+                    placeholder="Presupuesto"
+                    name="presupuesto"
+                    min="0"
+                    th:value="${proyecto.presupuesto}"
+                    required
+                    />
+
+                <input
+                    type="hidden"
+                    id="fecha_inicio"
+                    name="fecha_inicio"
+                    th:value="${proyecto.fecha_inicio}"
+                    />
+
+                <label for="id_cliente">Cliente:</label>
+                <select id="id_cliente" name="cliente" required>
+                    <option
+                        th:each="cliente : ${clientes}"
+                        th:value="${cliente.id}"
+                        th:text="${cliente.username}"
+                        th:selected="${cliente.id == proyecto.cliente}"
+                        ></option>
+                </select>
+
+                <input type="submit" value="Confirmar cambios" />
+            </form>
+        </div>
+
+        <a id="volver" href="/">Volver</a>
+
+    <th:block th:if="${proyectoEditado}">
+        <script>
+            window.onload = function () {
+                alert("Proyecto editado con éxito");
+            };
+        </script>
+    </th:block>
+</body>
+</html>

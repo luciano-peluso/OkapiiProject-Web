@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Okapii | Mis proyectos</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/css/tablas.css" />
+        <link rel="shortcut icon" href="/img/favicon.png" />
+    </head>
+    <body>
+        <h2>Mis proyectos:</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre del proyecto</th>
+                    <th>Estado</th>
+                    <th>Descripcion</th>
+                    <th>Presupuesto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="proyecto : ${proyectos}">
+                    <td th:text="${proyecto.nombre}"></td>
+                    <td th:text="${proyecto.estado}"></td>
+                    <td th:text="${proyecto.descripcion}"></td>
+                    <td th:text="'$ '+${proyecto.presupuesto}"></td>
+                </tr>
+            </tbody>
+        </table>
+        <a id="volver" href="/">Volver</a>
+    </body>
+</html>
